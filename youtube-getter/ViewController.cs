@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 using AppKit;
 using Foundation;
@@ -87,11 +88,10 @@ namespace youtubegetter
             }
 
 
-            //save and convert to string.
             var dlg = new NSSavePanel();
             dlg.Title = "Save Location";
 
-            if(dlg.RunModal() == 1){
+            if (dlg.RunModal() == 1){
                 var saveLocation = dlg.Url.Path;
                 GetVideo(saveLocation, urlString);
 
@@ -102,6 +102,8 @@ namespace youtubegetter
 
         }
 
+
+        //Wishlist: Implement progress bar.
         private async void GetVideo(string fileLocation,
                                     string address)
         {
