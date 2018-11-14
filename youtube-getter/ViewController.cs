@@ -90,9 +90,15 @@ namespace youtubegetter
             //save and convert to string.
             var dlg = new NSSavePanel();
             dlg.Title = "Save Location";
-            dlg.RunModal();
-            var saveLocation = dlg.Url.Path;
-            GetVideo(saveLocation, urlString);
+
+            if(dlg.RunModal() == 1){
+                var saveLocation = dlg.Url.Path;
+                GetVideo(saveLocation, urlString);
+
+            }
+            else{
+                return;
+            }
 
         }
 
