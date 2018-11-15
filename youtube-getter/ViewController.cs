@@ -89,6 +89,7 @@ namespace youtubegetter
             var dlg = new NSSavePanel();
             dlg.Title = "Save Location";
 
+
             if (dlg.RunModal() == 1){
                 var saveLocation = dlg.Url.Path;
                 GetVideo(saveLocation, urlString);
@@ -99,6 +100,7 @@ namespace youtubegetter
             }
 
         }
+        
 
 
         //Wishlist: Implement progress bar.
