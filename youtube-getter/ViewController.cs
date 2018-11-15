@@ -129,6 +129,8 @@ namespace youtubegetter
                        streamInfoSet.Audio[i].AudioEncoding == AudioEncoding.Mp3 ){
                         var streamInfo = streamInfoSet.Audio[i];
                         var ext = streamInfo.Container.GetFileExtension();
+                        if (ext == "m4a")
+                            ext = "mp4"; //because iTunes won't play dash m4a, but it will play mp4.
                         await client.DownloadMediaStreamAsync(streamInfo, fileLocation + "." + ext);
                         break;
                     }
