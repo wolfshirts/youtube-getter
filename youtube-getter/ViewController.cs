@@ -10,11 +10,6 @@ namespace youtubegetter
 {
     public partial class ViewController : NSViewController
     {
-        enum Errors{
-            NoCheckBox,
-            InvalidURL
-
-        }
 
         public ViewController(IntPtr handle) : base(handle)
         {
@@ -23,7 +18,6 @@ namespace youtubegetter
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-
             // Do any additional setup after loading the view.
         }
 
@@ -40,14 +34,12 @@ namespace youtubegetter
             }
         }
 
-        void ChangeErrorLabel(Errors e){
-
-
+        void ChangeErrorLabel(Status e){
             switch (e)
             {
-                case Errors.NoCheckBox: errorLabel.StringValue = "You must select a format.";
+                case Status.NoCheckBox: errorLabel.StringValue = "You must select a format.";
                     break;
-                case Errors.InvalidURL: errorLabel.StringValue = "You must enter a valid Youtube URL";
+                case Status.InvalidURL: errorLabel.StringValue = "You must enter a valid Youtube URL";
                     break;
 
                 default:
@@ -57,84 +49,46 @@ namespace youtubegetter
             errorLabel.Hidden = false;
         }
 
+
+
+        partial void streamInfoClicked(NSObject sender)
+        {
+            if(!HelperFunctions.validUrl(urlEntryBox)){
+                ChangeErrorLabel(Status.InvalidURL);
+                return;
+            }
+
+            var urlString = urlEntryBox.StringValue;
+            HelperFunctions.CheckBitRate(urlString, infoLabelOne, infoLabelTwo);
+        }
+
+
         partial void DownloadButtonClicked(NSObject sender)
         {
             if (audioCheckBox.State != NSCellStateValue.On &&
                 videoCheckBox.State != NSCellStateValue.On)
             {
-                ChangeErrorLabel(Errors.NoCheckBox);
+                ChangeErrorLabel(Status.NoCheckBox);
                 return;
             }
 
-
-            string urlString = urlEntryBox.StringValue;
-
-            if (string.IsNullOrEmpty(urlString)){
-                ChangeErrorLabel(Errors.InvalidURL);
-                return;
-            }
-            try
+            if (!HelperFunctions.validUrl(urlEntryBox))
             {
-                var client = new YoutubeClient();
-                var id = YoutubeClient.ParseVideoId(urlString);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-                ChangeErrorLabel(Errors.InvalidURL);
+                ChangeErrorLabel(Status.InvalidURL);
                 return;
             }
 
 
+            var urlString = urlEntryBox.StringValue;
             var dlg = new NSSavePanel();
             dlg.Title = "Save Location";
-
-
             if (dlg.RunModal() == 1){
                 var saveLocation = dlg.Url.Path;
-                GetVideo(saveLocation, urlString);
-
+                HelperFunctions.GetVideo(saveLocation, urlString, videoCheckBox,
+                                         audioCheckBox);
             }
             else{
                 return;
-            }
-
-        }
-        
-
-
-        //Wishlist: Implement progress bar.
-        private async void GetVideo(string fileLocation,
-                                    string address)
-        {
-            var client = new YoutubeClient();
-            var id = YoutubeClient.ParseVideoId(address);
-
-            var streamInfoSet = await client.GetVideoMediaStreamInfosAsync(id);
-
-            if (videoCheckBox.State == NSCellStateValue.On)
-            {
-                var streamInfo = streamInfoSet.Muxed.WithHighestVideoQuality();
-                var ext = streamInfo.Container.GetFileExtension();
-                await client.DownloadMediaStreamAsync(streamInfo, fileLocation + "." + ext);
-            }
-
-            if (audioCheckBox.State == NSCellStateValue.On)
-            {
-                //instead of running a native converter or something we'll take a lower
-                //bitrate to save on development time.
-                for (int i = 0; i < streamInfoSet.Audio.Count; i++)
-                {
-                    if( streamInfoSet.Audio[i].AudioEncoding == AudioEncoding.Aac || 
-                       streamInfoSet.Audio[i].AudioEncoding == AudioEncoding.Mp3 ){
-                        var streamInfo = streamInfoSet.Audio[i];
-                        var ext = streamInfo.Container.GetFileExtension();
-                        if (ext == "m4a")
-                            ext = "mp4"; //because iTunes won't play dash m4a, but it will play mp4.
-                        await client.DownloadMediaStreamAsync(streamInfo, fileLocation + "." + ext);
-                        break;
-                    }
-                }
             }
 
         }

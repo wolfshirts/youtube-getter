@@ -488,30 +488,76 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nbE-we-PCg">
+                                <rect key="frame" x="6" y="239" width="476" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="nbE-we-PCg" secondAttribute="height" multiplier="472:17" id="fEg-cr-MyQ"/>
+                                </constraints>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="pNo-3f-JyO">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YxJ-u4-Bqa">
+                                <rect key="frame" x="215" y="113" width="147" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="YxJ-u4-Bqa" secondAttribute="height" multiplier="45:7" id="KO9-c1-Owo"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Show Stream Info" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gHi-od-0GC">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="streamInfoClicked:" target="XfG-lQ-9wD" id="US6-86-mRB"/>
+                                </connections>
+                            </button>
+                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="L1x-fe-LZO">
+                                <rect key="frame" x="6" y="201" width="476" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="L1x-fe-LZO" secondAttribute="height" multiplier="472:17" id="PqJ-ir-N5p"/>
+                                </constraints>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="ZUX-cd-NkM">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="Wkj-w3-pAr" firstAttribute="leading" secondItem="YxJ-u4-Bqa" secondAttribute="trailing" constant="15" id="1Cn-LI-cfX"/>
                             <constraint firstItem="Wkj-w3-pAr" firstAttribute="top" secondItem="fmZ-sH-bUt" secondAttribute="bottom" constant="9" id="1sW-bL-ysi"/>
+                            <constraint firstItem="L1x-fe-LZO" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="8" id="2vM-3g-pYS"/>
                             <constraint firstItem="QbZ-xA-lbN" firstAttribute="top" secondItem="8Ex-hE-FOD" secondAttribute="bottom" constant="6" id="42F-gv-zpf"/>
+                            <constraint firstItem="unv-L3-qT2" firstAttribute="top" secondItem="YxJ-u4-Bqa" secondAttribute="bottom" constant="60" id="6Bm-8i-qSB"/>
+                            <constraint firstItem="nbE-we-PCg" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="8" id="6N7-te-PVi"/>
                             <constraint firstItem="fmZ-sH-bUt" firstAttribute="leading" secondItem="v9i-1a-Xaj" secondAttribute="trailing" constant="13" id="6av-df-5Rw"/>
                             <constraint firstItem="8Ex-hE-FOD" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="DBQ-sS-Ma2"/>
                             <constraint firstItem="QbZ-xA-lbN" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="EKV-YJ-J6K"/>
                             <constraint firstAttribute="bottom" secondItem="QbZ-xA-lbN" secondAttribute="bottom" constant="100" id="FZh-5D-J4z"/>
                             <constraint firstAttribute="trailing" secondItem="fmZ-sH-bUt" secondAttribute="trailing" constant="20" id="FyE-6j-Pdp"/>
                             <constraint firstItem="fmZ-sH-bUt" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="90" id="L4c-vl-Kcf"/>
+                            <constraint firstItem="L1x-fe-LZO" firstAttribute="top" secondItem="nbE-we-PCg" secondAttribute="bottom" constant="21" id="LAL-wD-QO4"/>
                             <constraint firstAttribute="bottom" secondItem="Wkj-w3-pAr" secondAttribute="bottom" constant="120" id="TIH-YD-lic"/>
                             <constraint firstItem="v9i-1a-Xaj" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="93" id="TpR-O3-X7n"/>
                             <constraint firstItem="QbZ-xA-lbN" firstAttribute="top" secondItem="8Ex-hE-FOD" secondAttribute="bottom" constant="6" id="bfa-Ar-WMB"/>
+                            <constraint firstItem="YxJ-u4-Bqa" firstAttribute="top" secondItem="fmZ-sH-bUt" secondAttribute="bottom" constant="9" id="dPM-Jc-J5Y"/>
                             <constraint firstItem="8Ex-hE-FOD" firstAttribute="top" secondItem="v9i-1a-Xaj" secondAttribute="bottom" constant="18" id="hkk-oA-1Y7"/>
                             <constraint firstItem="v9i-1a-Xaj" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="kCG-oe-e9F"/>
+                            <constraint firstItem="nbE-we-PCg" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="6" id="lQ1-ic-dKk"/>
                             <constraint firstItem="fmZ-sH-bUt" firstAttribute="leading" secondItem="v9i-1a-Xaj" secondAttribute="trailing" constant="13" id="loH-UG-Q37"/>
+                            <constraint firstAttribute="trailing" secondItem="L1x-fe-LZO" secondAttribute="trailing" id="n2k-io-hBq"/>
+                            <constraint firstAttribute="trailing" secondItem="nbE-we-PCg" secondAttribute="trailing" id="q6C-EV-OeP"/>
                             <constraint firstAttribute="trailing" secondItem="Wkj-w3-pAr" secondAttribute="trailing" constant="20" id="vyp-tY-COI"/>
                             <constraint firstAttribute="trailing" secondItem="unv-L3-qT2" secondAttribute="trailing" constant="20" id="wg3-XV-cRC"/>
                             <constraint firstItem="unv-L3-qT2" firstAttribute="top" secondItem="QbZ-xA-lbN" secondAttribute="bottom" constant="40" id="x30-bc-zhS"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="audioCheckBox" destination="QbZ-xA-lbN" id="qki-f0-ocG"/>
+                        <outlet property="audioCheckBox" destination="YxJ-u4-Bqa" id="x4C-SR-Rz4"/>
                         <outlet property="errorLabel" destination="unv-L3-qT2" id="dF0-o4-Lq7"/>
+                        <outlet property="infoLabelOne" destination="nbE-we-PCg" id="qFY-Dd-vdR"/>
+                        <outlet property="infoLabelTwo" destination="L1x-fe-LZO" id="FYK-kJ-W9y"/>
                         <outlet property="urlEntryBox" destination="fmZ-sH-bUt" id="Nxi-Ok-QLu"/>
                         <outlet property="videoCheckBox" destination="8Ex-hE-FOD" id="LMa-n3-GCc"/>
                     </connections>

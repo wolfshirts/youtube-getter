@@ -19,6 +19,12 @@ namespace youtubegetter
 		AppKit.NSTextField errorLabel { get; set; }
 
 		[Outlet]
+		AppKit.NSTextField infoLabelOne { get; set; }
+
+		[Outlet]
+		AppKit.NSTextField infoLabelTwo { get; set; }
+
+		[Outlet]
 		AppKit.NSTextField urlEntryBox { get; set; }
 
 		[Outlet]
@@ -26,12 +32,30 @@ namespace youtubegetter
 
 		[Action ("DownloadButtonClicked:")]
 		partial void DownloadButtonClicked (Foundation.NSObject sender);
+
+		[Action ("streamInfoClicked:")]
+		partial void streamInfoClicked (Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
 			if (audioCheckBox != null) {
 				audioCheckBox.Dispose ();
 				audioCheckBox = null;
+			}
+
+			if (errorLabel != null) {
+				errorLabel.Dispose ();
+				errorLabel = null;
+			}
+
+			if (infoLabelOne != null) {
+				infoLabelOne.Dispose ();
+				infoLabelOne = null;
+			}
+
+			if (infoLabelTwo != null) {
+				infoLabelTwo.Dispose ();
+				infoLabelTwo = null;
 			}
 
 			if (urlEntryBox != null) {
@@ -42,11 +66,6 @@ namespace youtubegetter
 			if (videoCheckBox != null) {
 				videoCheckBox.Dispose ();
 				videoCheckBox = null;
-			}
-
-			if (errorLabel != null) {
-				errorLabel.Dispose ();
-				errorLabel = null;
 			}
 		}
 	}
