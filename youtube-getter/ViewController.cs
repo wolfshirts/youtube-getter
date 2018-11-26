@@ -4,6 +4,7 @@ using Foundation;
 
 using YoutubeExplode;
 using YoutubeExplode.Models.MediaStreams;
+using System.Diagnostics;
 
 
 namespace youtubegetter
@@ -19,6 +20,28 @@ namespace youtubegetter
         {
             base.ViewDidLoad();
             // Do any additional setup after loading the view.
+            try
+            {
+                Process ffmpeg = new Process();
+                ffmpeg.StartInfo.UseShellExecute = true;
+                ffmpeg.StartInfo.FileName = "ffmpeg";
+                ffmpeg.StartInfo.CreateNoWindow = true;
+                ffmpeg.Start();
+            }
+            catch
+            {
+                var text = "You are missing a dependency which this application " +
+                    "relies on. Transcoding is done with ffmpeg. Please install " +
+                    "ffmpeg and try again.";
+                var alert = new NSAlert()
+                {
+                    AlertStyle = NSAlertStyle.Critical,
+                    InformativeText = text,
+                    MessageText = "Missing Dependency",
+                };
+                alert.RunModal();
+                NSApplication.SharedApplication.Terminate(this);
+            }
         }
 
         public override NSObject RepresentedObject
@@ -65,16 +88,16 @@ namespace youtubegetter
 
         partial void DownloadButtonClicked(NSObject sender)
         {
-            if (audioCheckBox.State != NSCellStateValue.On &&
-                videoCheckBox.State != NSCellStateValue.On)
-            {
-                ChangeErrorLabel(Status.NoCheckBox);
-                return;
-            }
-
             if (!HelperFunctions.validUrl(urlEntryBox))
             {
                 ChangeErrorLabel(Status.InvalidURL);
+                return;
+            }
+
+            if (audioCheck.State != NSCellStateValue.On &&
+                videoCheckBox.State != NSCellStateValue.On)
+            {
+                ChangeErrorLabel(Status.NoCheckBox);
                 return;
             }
 
@@ -85,7 +108,7 @@ namespace youtubegetter
             if (dlg.RunModal() == 1){
                 var saveLocation = dlg.Url.Path;
                 HelperFunctions.GetVideo(saveLocation, urlString, videoCheckBox,
-                                         audioCheckBox);
+                                         audioCheck);
             }
             else{
                 return;

@@ -467,16 +467,6 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QbZ-xA-lbN">
-                                <rect key="frame" x="18" y="98" width="57" height="18"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="QbZ-xA-lbN" secondAttribute="height" multiplier="53:14" id="T8r-21-mw3"/>
-                                </constraints>
-                                <buttonCell key="cell" type="check" title="Audio" bezelStyle="regularSquare" imagePosition="left" inset="2" id="LAY-Li-tmT">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
                             <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="unv-L3-qT2">
                                 <rect key="frame" x="20" y="43" width="442" height="17"/>
                                 <constraints>
@@ -523,37 +513,46 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PAN-YW-Zpy">
+                                <rect key="frame" x="18" y="98" width="57" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="PAN-YW-Zpy" secondAttribute="height" multiplier="53:14" id="hvf-l1-aMq"/>
+                                </constraints>
+                                <buttonCell key="cell" type="check" title="Audio" bezelStyle="regularSquare" imagePosition="left" inset="2" id="BRH-ul-fO2">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Wkj-w3-pAr" firstAttribute="leading" secondItem="YxJ-u4-Bqa" secondAttribute="trailing" constant="15" id="1Cn-LI-cfX"/>
                             <constraint firstItem="Wkj-w3-pAr" firstAttribute="top" secondItem="fmZ-sH-bUt" secondAttribute="bottom" constant="9" id="1sW-bL-ysi"/>
                             <constraint firstItem="L1x-fe-LZO" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="8" id="2vM-3g-pYS"/>
-                            <constraint firstItem="QbZ-xA-lbN" firstAttribute="top" secondItem="8Ex-hE-FOD" secondAttribute="bottom" constant="6" id="42F-gv-zpf"/>
                             <constraint firstItem="unv-L3-qT2" firstAttribute="top" secondItem="YxJ-u4-Bqa" secondAttribute="bottom" constant="60" id="6Bm-8i-qSB"/>
                             <constraint firstItem="nbE-we-PCg" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="8" id="6N7-te-PVi"/>
                             <constraint firstItem="fmZ-sH-bUt" firstAttribute="leading" secondItem="v9i-1a-Xaj" secondAttribute="trailing" constant="13" id="6av-df-5Rw"/>
                             <constraint firstItem="8Ex-hE-FOD" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="DBQ-sS-Ma2"/>
-                            <constraint firstItem="QbZ-xA-lbN" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="EKV-YJ-J6K"/>
-                            <constraint firstAttribute="bottom" secondItem="QbZ-xA-lbN" secondAttribute="bottom" constant="100" id="FZh-5D-J4z"/>
+                            <constraint firstItem="PAN-YW-Zpy" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="DMQ-Eu-jb1"/>
                             <constraint firstAttribute="trailing" secondItem="fmZ-sH-bUt" secondAttribute="trailing" constant="20" id="FyE-6j-Pdp"/>
                             <constraint firstItem="fmZ-sH-bUt" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="90" id="L4c-vl-Kcf"/>
                             <constraint firstItem="L1x-fe-LZO" firstAttribute="top" secondItem="nbE-we-PCg" secondAttribute="bottom" constant="21" id="LAL-wD-QO4"/>
                             <constraint firstAttribute="bottom" secondItem="Wkj-w3-pAr" secondAttribute="bottom" constant="120" id="TIH-YD-lic"/>
                             <constraint firstItem="v9i-1a-Xaj" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="93" id="TpR-O3-X7n"/>
-                            <constraint firstItem="QbZ-xA-lbN" firstAttribute="top" secondItem="8Ex-hE-FOD" secondAttribute="bottom" constant="6" id="bfa-Ar-WMB"/>
+                            <constraint firstItem="unv-L3-qT2" firstAttribute="top" secondItem="PAN-YW-Zpy" secondAttribute="bottom" constant="40" id="XnZ-CB-Ye0"/>
                             <constraint firstItem="YxJ-u4-Bqa" firstAttribute="top" secondItem="fmZ-sH-bUt" secondAttribute="bottom" constant="9" id="dPM-Jc-J5Y"/>
                             <constraint firstItem="8Ex-hE-FOD" firstAttribute="top" secondItem="v9i-1a-Xaj" secondAttribute="bottom" constant="18" id="hkk-oA-1Y7"/>
                             <constraint firstItem="v9i-1a-Xaj" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="kCG-oe-e9F"/>
                             <constraint firstItem="nbE-we-PCg" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="6" id="lQ1-ic-dKk"/>
                             <constraint firstItem="fmZ-sH-bUt" firstAttribute="leading" secondItem="v9i-1a-Xaj" secondAttribute="trailing" constant="13" id="loH-UG-Q37"/>
                             <constraint firstAttribute="trailing" secondItem="L1x-fe-LZO" secondAttribute="trailing" id="n2k-io-hBq"/>
+                            <constraint firstItem="PAN-YW-Zpy" firstAttribute="top" secondItem="8Ex-hE-FOD" secondAttribute="bottom" constant="6" id="oFt-kM-Omd"/>
                             <constraint firstAttribute="trailing" secondItem="nbE-we-PCg" secondAttribute="trailing" id="q6C-EV-OeP"/>
                             <constraint firstAttribute="trailing" secondItem="Wkj-w3-pAr" secondAttribute="trailing" constant="20" id="vyp-tY-COI"/>
                             <constraint firstAttribute="trailing" secondItem="unv-L3-qT2" secondAttribute="trailing" constant="20" id="wg3-XV-cRC"/>
-                            <constraint firstItem="unv-L3-qT2" firstAttribute="top" secondItem="QbZ-xA-lbN" secondAttribute="bottom" constant="40" id="x30-bc-zhS"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="audioCheck" destination="PAN-YW-Zpy" id="6t1-hq-07M"/>
                         <outlet property="audioCheckBox" destination="YxJ-u4-Bqa" id="x4C-SR-Rz4"/>
                         <outlet property="errorLabel" destination="unv-L3-qT2" id="dF0-o4-Lq7"/>
                         <outlet property="infoLabelOne" destination="nbE-we-PCg" id="qFY-Dd-vdR"/>

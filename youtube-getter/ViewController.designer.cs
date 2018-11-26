@@ -13,6 +13,9 @@ namespace youtubegetter
 	partial class ViewController
 	{
 		[Outlet]
+		AppKit.NSButton audioCheck { get; set; }
+
+		[Outlet]
 		AppKit.NSButton audioCheckBox { get; set; }
 
 		[Outlet]
@@ -38,6 +41,11 @@ namespace youtubegetter
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (audioCheck != null) {
+				audioCheck.Dispose ();
+				audioCheck = null;
+			}
+
 			if (audioCheckBox != null) {
 				audioCheckBox.Dispose ();
 				audioCheckBox = null;

@@ -2,6 +2,8 @@
 using YoutubeExplode;
 using YoutubeExplode.Models.MediaStreams;
 using AppKit;
+using System.Diagnostics;
+//todo refactor out all coupling to the view controller.
 namespace youtubegetter
 {
     public static class HelperFunctions
@@ -44,7 +46,15 @@ namespace youtubegetter
                 var audioStream = streamInfoSet.Audio.WithHighestBitrate();
                 var ext = audioStream.Container.GetFileExtension();
                 var tempName = Guid.NewGuid().ToString("n").Substring(0, 8) + "." + ext;
-                await client.DownloadMediaStreamAsync(audioStream, "/tmp/");
+                await client.DownloadMediaStreamAsync(audioStream, "/tmp/" + tempName);
+                var cmdArgs = "-i " + "/tmp/" + tempName + " -acodec alac " +
+                    fileLocation + ".m4a";
+                Process ffmpeg = new Process();
+                ffmpeg.StartInfo.UseShellExecute = true;
+                ffmpeg.StartInfo.FileName = "ffmpeg";
+                ffmpeg.StartInfo.Arguments = cmdArgs;
+                ffmpeg.StartInfo.CreateNoWindow = true;
+                ffmpeg.Start();
 
             }
 

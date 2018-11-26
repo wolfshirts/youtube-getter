@@ -5,6 +5,5 @@ namespace youtubegetter
     {
         NoCheckBox,
         InvalidURL,
-        URLValid
     }
 }
